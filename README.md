@@ -31,8 +31,8 @@ This function will update your repository with one simple step rather than the t
 
 To use this function, you must currently be in a git directory (if not, you should receive an alert that you are not in a directory with a git repository). 
 
-While in a directory with a git repo...simply type the command:
-  "updateRepo 'This is my commit message'" 
+While in a directory with a git repo...simply type the command: <br />
+  "updateRepo 'This is my commit message'" <br />
 
 Hit enter.
 (If you do not provide a commit message or as a string you will receive an error)
