@@ -1,0 +1,31 @@
+webserver {
+	#If using MAMP, simply replace it with XAMPP on next line
+	cd /Applications/XAMPP/htdocs/"$1";	
+}
+
+checkIfRepoExists() {
+	PWD=$(pwd)
+	if [ -e "$PWD/.git" ]; then
+		return 1
+	else 
+		return 0
+	fi
+}
+
+updateRepo() {
+	if [ checkIfRepoExists ]; then
+		#repo exists, now checking for commit message
+		if [ "$#" -ne 1 ]; then
+			echo "ERROR: Please pass commit message"
+			return 0
+		#repo exists and message was passed
+		else
+			git add -A;
+			git commit -m "$1";
+			git push origin master;
+			echo "Git update completed";
+		fi
+	else 
+		echo "ERROR: This directory does not contain a git repository"
+	fi
+}
